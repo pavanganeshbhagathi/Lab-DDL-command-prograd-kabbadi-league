@@ -18,7 +18,7 @@ CREATE TABLE skill(skill_id bigint not null auto_increment,skill_name VARCHAR(50
 	coach varchar(120),
     home_city int not null,
 	captain int,
-    foreign key (home_city) references city(city_id),
+    foreign key (home_city) references city(id),
     primary key (id)
   ) ENGINE = InnoDB;
 -- 7. **Create table player**
@@ -67,9 +67,9 @@ event_id int not null,
 extra_type_id int not null,
 points int,
 scoring_team_id int not null,
-foreign key (event_id) references team(id),
+foreign key (event_id) references event(event_id),
 foreign key (extra_type_id) references extra_type(extra_type_id),
-foreign key (scoring_team_id) references event(event_id),
+foreign key (scoring_team_id) references team(id),
 primary key(extra_event_id)
 );
 -- 11. **Create table outcome**
